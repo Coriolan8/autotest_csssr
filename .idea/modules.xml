@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/autotest_csssr.iml" filepath="$PROJECT_DIR$/.idea/modules/autotest_csssr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/autotest_csssr_main.iml" filepath="$PROJECT_DIR$/.idea/modules/autotest_csssr_main.iml" group="autotest_csssr" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/autotest_csssr_test.iml" filepath="$PROJECT_DIR$/.idea/modules/autotest_csssr_test.iml" group="autotest_csssr" />
+    </modules>
+  </component>
+</project>
