@@ -21,13 +21,19 @@ public class TestHelper {
 
   @BeforeMethod
   public void setUp() throws Exception {
-    String Browser = BrowserType.FIREFOX;
-    if (Browser.equals(BrowserType.FIREFOX)){
-      wd = new FirefoxDriver();    }
-    else if (Browser.equals(BrowserType.CHROME)){
-      wd = new ChromeDriver();    }
-    else if (Browser.equals(BrowserType.IE)){
-      wd = new InternetExplorerDriver();    }
+    String Browser = BrowserType.CHROME;
+    switch (Browser) {
+      case BrowserType.FIREFOX:
+        wd = new FirefoxDriver();
+        break;
+      case BrowserType.CHROME:
+        wd = new ChromeDriver();
+        break;
+      case BrowserType.IE:
+      default:
+        wd = new InternetExplorerDriver();
+        break;
+    }
     wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     goToSite("http://blog.csssr.ru/qa-engineer/");
   }
@@ -52,7 +58,7 @@ public class TestHelper {
           System.out.println("Test Passed");
         }  else{
           System.out.println();
-    System.out.println("WRONG LINK - TEST FAILED!");}
+    System.out.println("WRONG LINK!!");}
 
   }
 
