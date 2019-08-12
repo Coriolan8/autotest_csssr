@@ -5,38 +5,33 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-
-
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Coriolan8 on 12.08.2019.
  */
 public class TestHelper {
-  WebDriver wd;
+  private WebDriver wd;
 
-
-  @BeforeMethod
-  public void setUp() throws Exception {
-    String Browser = BrowserType.CHROME;
-    switch (Browser) {
-      case BrowserType.FIREFOX:
+  void createBrowser(BrowserType browserType) {
+    switch (browserType) {
+      case FIREFOX:
         wd = new FirefoxDriver();
         break;
-      case BrowserType.CHROME:
+      case CHROME:
         wd = new ChromeDriver();
         break;
-      case BrowserType.IE:
+      case IE:
       default:
         wd = new InternetExplorerDriver();
         break;
     }
-    wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-    goToSite("http://blog.csssr.ru/qa-engineer/");
+      wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+      goToSite("http://blog.csssr.ru/qa-engineer/");
   }
+
+
 
   public void goToSite(String url) {
     wd.get(url);
@@ -54,11 +49,8 @@ public class TestHelper {
   }
   public void CheckSite(){
     String title = wd.getTitle();
-        if (title.equals("Monosnap")) {
-          System.out.println("Test Passed");
-        }  else{
-          System.out.println();
-    System.out.println("WRONG LINK!!");}
+        if (! title.equals("Monosnap")) {
+             System.out.println("WRONG LINK!!");}
 
   }
 
@@ -67,12 +59,4 @@ public class TestHelper {
   public void tearDown() {
     wd.quit();
   }
-//  public static boolean isAlertPresent(FirefoxDriver wd) {
-//    try {
-//      wd.switchTo().alert();
-//      return true;
-//    } catch (NoAlertPresentException e) {
-//      return false;
-//    }
-//  }
 }
