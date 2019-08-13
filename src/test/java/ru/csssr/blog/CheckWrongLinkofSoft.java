@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 /**
  * Created by Coriolan8 on 12.08.2019.
  */
-public class CheckWrongLinkOfSoft extends TestHelper {
+public class CheckWrongLinkofSoft extends TestHelper {
 
   @BeforeMethod
   public void setup() {
