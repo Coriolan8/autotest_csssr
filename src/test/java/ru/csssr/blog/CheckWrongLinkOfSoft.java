@@ -5,11 +5,11 @@ import org.testng.annotations.Test;
 /**
  * Created by Coriolan8 on 12.08.2019.
  */
-public class CheckWongLinkofSoft extends TestHelper {
+public class CheckWrongLinkOfSoft extends TestHelper {
 
   @BeforeMethod
   public void setup() {
-    createBrowser(BrowserType.FIREFOX);
+    createBrowser(BrowserType.CHROME);
   }
 
 
